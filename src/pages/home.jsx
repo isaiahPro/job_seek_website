@@ -12,8 +12,8 @@ import promoPc3 from "../assets/logoimages/gir-large.png";
 import { FiUpload } from "react-icons/fi";
 import CompaniesSwiper from "../components/catswiper";
 import TestimonialsSwiper from "../components/testimonialswiper";
-import { Testimonials } from "../constants/linkslist";
-
+import BlogList from "../components/blogLIst";
+import { blogList } from "../constants/linkslist";
 const HomePage = () => {
   // const bears = useStore((state) => state.bears);
   const [displayPicIndex, setDisplayPicIndex] = useState(0);
@@ -314,7 +314,7 @@ const HomePage = () => {
           ))}
         </div>
       </div>
-      <div className={"bg-white py-20 px-20"}>
+      <div className={"bg-white py-20 pb-0 px-20"}>
         <p className={"text-xl font-bold my-5 text-blue-700"}>
           Clients Testimonials
         </p>
@@ -328,6 +328,15 @@ const HomePage = () => {
         <div className={"my-20"}>
           <TestimonialsSwiper />
         </div>
+      </div>
+      <div className={"bg-[#f0f6fe] py-10 px-20"}>
+        <div className={"text-center mb-20"}>
+          <p className={"text-blue-600 text-xl my-2 font-semibold"}>
+            Our Blogs
+          </p>
+          <h1 className={"text-5xl font-semibold mt-5"}>Latest Article</h1>
+        </div>
+        <BlogList data={blogList} />
       </div>
     </div>
   );

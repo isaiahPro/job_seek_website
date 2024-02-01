@@ -3,7 +3,7 @@ import "./App.css";
 import HomePage from "./pages/home";
 import PageNotFound from "./pages/pagenotfound";
 import Navbar from "./components/navbar";
-import Footer from "./pages/footer";
+import Footer from "./components/footer";
 
 function App() {
   const { pathname } = useLocation();

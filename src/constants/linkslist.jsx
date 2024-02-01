@@ -22,6 +22,9 @@ import jobImage5 from "../assets/logoimages/pic5.jpg";
 import TestimonialImage from "../assets/logoimages/pic-1.png";
 import TestimonialImage2 from "../assets/logoimages/pic-2.png";
 import TestimonialImage3 from "../assets/logoimages/pic-3.png";
+import blogImage1 from "../assets/sampleimages/bg1.jpg";
+import blogImage2 from "../assets/sampleimages/bg2.jpg";
+import blogImage3 from "../assets/sampleimages/bg3.jpg";
 
 export const navbarlist = [
   {
@@ -291,10 +294,9 @@ export const Testimonials = [
   },
   {
     name: "Emma Watson",
-    image: TestimonialImage3,
+    image: TestimonialImage2,
     job: "Marketing Specialist",
-    description:
-      "I had a great experience with Careerfy. The platform's extensive job listings in the marketing field helped me discover relevant positions that aligned with my skills and aspirations. The easy-to-use interface and personalized job recommendations made my job search efficient and effective. Thanks to Careerfy, I found the perfect job that allowed me to take my career to the next level.",
+    description: "I had a great experience with Careerfy. I recommend it.",
   },
   {
     name: "Nikolas Tesla",
@@ -330,5 +332,31 @@ export const Testimonials = [
     job: "Software Engineer",
     description:
       "I Just got that i applied for via careerfy! I used the site all the time during my job hunt.",
+  },
+];
+export const blogList = [
+  {
+    name: "Devid Wish",
+    date: "March 13, 2022",
+    image: blogImage1,
+    blogtitle: "How to convince recruiters and get your dream job",
+    description:
+      "Please make sure you understand what rights you are claiming before you submit a DMCA takedown notice because it is a serious legal document. Consider whether you need legal advice. It's really important not to make false claims as this could have serious legal consequences.penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer tristique elit lobortis purus bibendum, quis dictum metus mattis. Phasellus posuere felis sed eros porttitor mattis. Curabitur massa magna, tempor in blandit id, porta in ligula. Aliquam laoreet nisl massa, at interdum mauris sollicitudin et.Harvel is a copyright protection platform for next-gen creators, crawling the web on a daily basis in order to find piracy links and copyright infringement of your content.",
+  },
+  {
+    name: "Devid Wish",
+    date: "March 13, 2022",
+    image: blogImage2,
+    blogtitle: "How to convince recruiters and get your dream job",
+    description:
+      "Please make sure you understand what rights you are claiming before you submit a DMCA takedown notice because it is a serious legal document. Consider whether you need legal advice. It's really important not to make false claims as this could have serious legal consequences.penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer tristique elit lobortis purus bibendum, quis dictum metus mattis. Phasellus posuere felis sed eros porttitor mattis. Curabitur massa magna, tempor in blandit id, porta in ligula. Aliquam laoreet nisl massa, at interdum mauris sollicitudin et.Harvel is a copyright protection platform for next-gen creators, crawling the web on a daily basis in order to find piracy links and copyright infringement of your content.",
+  },
+  {
+    name: "John Doe",
+    date: "April 25, 2022",
+    image: blogImage3,
+    blogtitle: "10 Tips for Effective Time Management",
+    description:
+      "Time management is crucial for productivity and achieving your goals. Here are 10 tips to help you manage your time effectively:\n\n1. Prioritize your tasks\n2. Set specific goals\n3. Break tasks into smaller steps\n4. Eliminate distractions\n5. Use time-blocking technique\n6. Delegate tasks when possible\n7. Take regular breaks\n8. Use productivity tools\n9. Learn to say no\n10. Review and adjust your schedule regularly\n\nBy implementing these tips, you can improve your time management skills and make the most out of your day.",
   },
 ];
