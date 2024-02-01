@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import JoinSearch from "../components/JoinSearch";
 import promoPc1 from "../assets/logoimages/r-img1.png";
 import promoPc2 from "../assets/logoimages/r-img2.png";
-import { popularSearches } from "../constants/linkslist";
+import { jobList, popularSearches } from "../constants/linkslist";
 import { Link } from "react-router-dom";
 import Image from "../assets/logoimages/icon-1.png";
 import Image2 from "../assets/logoimages/icon-2.png";
@@ -10,6 +10,9 @@ import { howList } from "../constants/linkslist";
 import CatagoriesSwiper from "../components/swiper";
 import promoPc3 from "../assets/logoimages/gir-large.png";
 import { FiUpload } from "react-icons/fi";
+import CompaniesSwiper from "../components/catswiper";
+import TestimonialsSwiper from "../components/testimonialswiper";
+import { Testimonials } from "../constants/linkslist";
 
 const HomePage = () => {
   // const bears = useStore((state) => state.bears);
@@ -172,7 +175,9 @@ const HomePage = () => {
         </div>
       </div>
       <div
-        className={"-mt-40 relative flex flex-row p-20 pb-72 bg-[#f6f7f9] h-[800px] "}
+        className={
+          "-mt-40 relative flex flex-row p-20 pb-72 bg-[#f6f7f9] h-[800px] "
+        }
       >
         <div className={"z-10 absolute left-14 w-[50%]"}>
           <img src={promoPc3} alt="Promotional Image" className={"mx-auto"} />
@@ -195,12 +200,133 @@ const HomePage = () => {
             opportunity, transcending geographical boundaries and opening doors
             to a world of possibilities.
           </p>
-          <div className={"flex text-base hover:opacity-70 hover:cursor-pointer font-bold bg-slate-200 w-fit text-blue-700 p-2 rounded-md py-3 flex-row gap-2"}>
+          <div
+            className={
+              "flex text-base hover:opacity-70 hover:cursor-pointer font-bold bg-slate-200 w-fit text-blue-700 p-2 rounded-md py-3 flex-row gap-2"
+            }
+          >
             <div>Upload your CV </div>
             <div className={"my-auto"}>
               <FiUpload />
             </div>
           </div>
+        </div>
+      </div>
+      <div className={"p-10 text-center flex flex-col"}>
+        <p className={"text-blue-600 text-xl my-2 font-semibold"}>
+          Top companies
+        </p>
+        <h1 className={"text-5xl font-semibold mt-5"}>
+          Get hired in top companies
+        </h1>
+        <div className={"my-20"}>
+          <CompaniesSwiper />
+        </div>
+      </div>
+      <div className={"bg-[#f0f6fe] relative pb-20 w-full"}>
+        <div
+          className={
+            "border-[#dbe7f9] border-[120px] absolute top-36 -right-[150px] w-[700px] bg-[#f0f6fe] h-[700px] rounded-full"
+          }
+        ></div>
+        <div className={"bg-white relative "}>
+          <div
+            className={
+              "absolute bg-white shadow-2xl shadow-[black] rounded-xl px-5 py-7 left-[28%] -top-10 items-center flex flex-row gap-10"
+            }
+          >
+            <div>
+              <p
+                className={
+                  "text-[#3898e2] text-center text-2xl font-semibold text"
+                }
+              >
+                5M+
+              </p>
+              <p className={"text-base"}>millon day active users</p>
+            </div>
+            <div>
+              <p
+                className={"text-[#bc84ca]  text-2xl font-semibold text-center"}
+              >
+                5M+
+              </p>
+              <p className={"text-base"}>millon day active users</p>
+            </div>
+            <div>
+              <p
+                className={"text-[#56d8b1]  text-2xl font-semibold text-center"}
+              >
+                5M+
+              </p>
+              <p className={"text-base"}>millon day active users</p>
+            </div>
+          </div>
+        </div>
+        <div className={"absolute left-[30%] top-[10%] text-center"}>
+          <p className={"text-xl font-semibold text-blue-700 py-5"}>
+            All Jobs Post
+          </p>
+          <div className={"text-5xl w-[500px] leading-relaxed font-semibold"}>
+            Find Your Career You Deserve it
+          </div>
+        </div>
+        <div
+          className={"pt-[400px] flex flex-col gap-16 rounded-md pl-[250px]"}
+        >
+          {jobList.map((job, index) => (
+            <div
+              key={index}
+              className={"bg-white h-[150px] relative z-10 w-[80%]"}
+            >
+              <div
+                className={
+                  "overflow-hidden h-[140px] w-[150px] bg-white absolute left-5 top-10 shadow-xl shadow-blue-400"
+                }
+              >
+                <img src={job.image} alt="job" className={"object-contain"} />
+              </div>
+              <div className={"p-5 pl-48 pt-10"}>
+                <p className={"text-base font-semibold"}>{job.title}</p>
+                <p className={"text-sm pb-7"}>{job.location}</p>
+                <Link to={job.link} className={"text-sm text-blue-700"}>
+                  {job.link}
+                </Link>
+              </div>
+              <div
+                className={
+                  "absolute top-10 flex flex-col gap-2 text-right items-end right-10"
+                }
+              >
+                <div
+                  className={
+                    "text-sm text-white text-center w-fit py-1 px-3 ml-5 font-ubuntu bg-green-600 rounded-md"
+                  }
+                >
+                  {job.status}
+                </div>
+                <div className={"text-center font-bold font-roboto"}>
+                  {job.price} / Month
+                </div>
+                <div className={"font-bold text-blue-600"}>{job.jobType}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className={"bg-white py-20 px-20"}>
+        <p className={"text-xl font-bold my-5 text-blue-700"}>
+          Clients Testimonials
+        </p>
+        <p
+          className={
+            "text-5xl font-ubuntu w-[500px] leading-[70px] font-semibold"
+          }
+        >
+          What Our Customers Say About Us
+        </p>
+        <div className={"my-20"}>
+          <TestimonialsSwiper />
         </div>
       </div>
     </div>

@@ -7,21 +7,21 @@ import Footer from "./pages/footer";
 
 function App() {
   const { pathname } = useLocation();
-  const showNavbar = [""];
-  const showFooter = [""];
-  const shouldHideNavbar = showNavbar.includes(pathname);
-  const shouldHideFooter = showFooter.includes(pathname);
+  const showNavbar = ["/"];
+  const showFooter = ["/"];
+  const shouldShowNavbar = showNavbar.includes(pathname);
+  const shouldShowFooter = showFooter.includes(pathname);
 
   return (
     <>
-      {!shouldHideNavbar && <Navbar />}
+      {shouldShowNavbar && <Navbar />}
       <Routes>
         <Route path="/" element={<HomePage />} />
         {/* <Route path="/catagories" element={<Catagories />} />
         <Route path="/category/:catagoryID" element={<MainCat />} /> */}
         <Route path="*" element={<PageNotFound />} />
       </Routes>
-      {!shouldHideFooter && <Footer />}
+      {shouldShowFooter && <Footer />}
     </>
   );
 }

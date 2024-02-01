@@ -8,6 +8,20 @@ import { SiWritedotas } from "react-icons/si";
 import { SiXdadevelopers } from "react-icons/si";
 import { FaBusinessTime } from "react-icons/fa";
 import { GiLifeInTheBalance } from "react-icons/gi";
+import comImage from "../assets/logoimages/w1.png";
+import comImage2 from "../assets/logoimages/w2.png";
+import comImage3 from "../assets/logoimages/w3.png";
+import comImage4 from "../assets/logoimages/w4.png";
+import comImage5 from "../assets/logoimages/w5.png";
+import comImage6 from "../assets/logoimages/w6.png";
+import jobImage from "../assets/logoimages/pic1.jpg";
+import jobImage2 from "../assets/logoimages/pic2.jpg";
+import jobImage3 from "../assets/logoimages/pic3.jpg";
+import jobImage4 from "../assets/logoimages/pic4.jpg";
+import jobImage5 from "../assets/logoimages/pic5.jpg";
+import TestimonialImage from "../assets/logoimages/pic-1.png";
+import TestimonialImage2 from "../assets/logoimages/pic-2.png";
+import TestimonialImage3 from "../assets/logoimages/pic-3.png";
 
 export const navbarlist = [
   {
@@ -167,5 +181,154 @@ export const catagoryList = [
     link: "/jobs?catagory=Business",
     icon: <FaBusinessTime />,
     count: "22100",
+  },
+];
+
+export const companyList = [
+  {
+    name: "DigitalOcean",
+    link: "/jobs?company=DigitalOcean",
+    img: comImage,
+  },
+  {
+    name: "Energy",
+    link: "/jobs?company=Energy",
+    img: comImage2,
+  },
+  {
+    name: "Innovation",
+    link: "/jobs?company=Innovation",
+    img: comImage3,
+  },
+  {
+    name: "Technology",
+    link: "/jobs?company=Technology",
+    img: comImage4,
+  },
+  {
+    name: "GreenPower",
+    link: "/jobs?company=GreenPower",
+    img: comImage5,
+  },
+  {
+    name: "flash Tech",
+    link: "/jobs?company=flashTech",
+    img: comImage6,
+  },
+];
+export const jobList = [
+  {
+    title: "Senior Web Designer , Developer",
+    location: "1363-1385 Sunset Blvd Los Angeles, CA 90026, USA",
+    link: "https://thewebmax.com",
+    day: " 1 days ago",
+    status: "New",
+    color: "",
+    price: 2500,
+    jobType: "Browse Job",
+    image: jobImage,
+  },
+  {
+    title: "Senior Web Designer , Developer",
+    location: "1363-1385 Sunset Blvd Los Angeles, CA 90026, USA",
+    link: "https://thewebmax.com",
+    day: " 1 days ago",
+    status: "New",
+    color: "",
+    price: 2500,
+    jobType: "Browse Job",
+    image: jobImage2,
+  },
+  {
+    title: "Senior Web Designer , Developer",
+    location: "1363-1385 Sunset Blvd Los Angeles, CA 90026, USA",
+    link: "https://thewebmax.com",
+    day: " 1 days ago",
+    status: "New",
+    color: "",
+    price: 2500,
+    jobType: "Browse Job",
+    image: jobImage3,
+  },
+  {
+    title: "Senior Web Designer , Developer",
+    location: "1363-1385 Sunset Blvd Los Angeles, CA 90026, USA",
+    link: "https://thewebmax.com",
+    day: " 1 days ago",
+    status: "New",
+    color: "",
+    price: 2500,
+    jobType: "Browse Job",
+    image: jobImage4,
+  },
+  {
+    title: "Senior Web Designer , Developer",
+    location: "1363-1385 Sunset Blvd Los Angeles, CA 90026, USA",
+    link: "https://thewebmax.com",
+    day: " 1 days ago",
+    status: "New",
+    color: "",
+    price: 2500,
+    jobType: "Browse Job",
+    image: jobImage5,
+  },
+];
+
+export const Testimonials = [
+  {
+    name: "Nikolas Tesla",
+    image: TestimonialImage,
+    job: "Software Engineer",
+    description:
+      "I Just got that i applied for via careerfy! I used the site all the time during my job hunt.",
+  },
+  {
+    name: "Nikolas Tesla",
+    image: TestimonialImage,
+    job: "Software Engineer",
+    description:
+      "I Just got that i applied for via careerfy! I used the site all the time during my job hunt.",
+  },
+  {
+    name: "Emma Watson",
+    image: TestimonialImage3,
+    job: "Marketing Specialist",
+    description:
+      "I had a great experience with Careerfy. The platform's extensive job listings in the marketing field helped me discover relevant positions that aligned with my skills and aspirations. The easy-to-use interface and personalized job recommendations made my job search efficient and effective. Thanks to Careerfy, I found the perfect job that allowed me to take my career to the next level.",
+  },
+  {
+    name: "Nikolas Tesla",
+    image: TestimonialImage,
+    job: "Software Engineer",
+    description:
+      "I Just got that i applied for via careerfy! I used the site all the time during my job hunt.",
+  },
+  {
+    name: "Nikolas Tesla",
+    image: TestimonialImage,
+    job: "Software Engineer",
+    description:
+      "I Just got that i applied for via careerfy! I used the site all the time during my job hunt.",
+  },
+  {
+    name: "Nikolas Tesla",
+    image: TestimonialImage,
+    job: "Software Engineer",
+    description:
+      "I Just got that i applied for via careerfy! I used the site all the time during my job hunt.",
+  },
+  {
+    name: "Nikolas Tesla",
+    image: TestimonialImage,
+    job: "Software Engineer",
+    description:
+      "I Just got that i applied for via careerfy! I used the site all the time during my job hunt.",
+  },
+  {
+    name: "Nikolas Tesla",
+    image: TestimonialImage,
+    job: "Software Engineer",
+    description:
+      "I Just got that i applied for via careerfy! I used the site all the time during my job hunt.",
   },
 ];
