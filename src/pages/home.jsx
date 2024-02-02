@@ -30,7 +30,7 @@ const HomePage = () => {
 
   const displayPic = images[displayPicIndex];
   return (
-    <div className={" overflow-hidden p-0  "}>
+    <div className={" overflow-hidden p-0 bg-white "}>
       <div className="font-ubuntu relative bg-[#f7f8fa] h-fit p-5 flex flex-row mt-0 pb-20 overflow-hidden pt-28 w-full">
         <div className="w-[47%] pt-20 pl-5 py-5">
           <p className="text-2xl font-semibold my-4">

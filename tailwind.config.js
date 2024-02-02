@@ -4,8 +4,8 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     screens: {
-      sm: { min: "0px", max: "480px" },
-      md: { min: "481px", max: "768px" },
+      sm: { min: "0px", max: "600px" },
+      md: { min: "601px", max: "768px" },
       lg: { min: "769px", max: "1024px" },
       xl: { min: "1025px", max: "1280px" },
       "2xl": { min: "1281px", max: "1356px" },
@@ -18,5 +18,6 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
+
 };
