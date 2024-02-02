@@ -11,17 +11,14 @@ import { HiMenu } from "react-icons/hi";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
-  const values = updateSearch((state) => state.values);
-  const updateDisplay = updateSearch((state) => state.updateDisplay);
   const [searchDisplay, setSearchDisplay] = useState(false);
   const [hoverLink, setHoverLink] = useState({});
   const [signupHover, setSignupHover] = useState(false);
   const [searchList, setSearchList] = useState(false);
-  const [mobileNav, setMobileNav] = useState(false);
   const divRef = useRef(null);
   const mobileNavRef = useRef(null);
   const searchdivRef = useRef(null);
-  const [isHidden, setIsHidden] = useState(true);
+  const [isHidden, setIsHidden] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,13 +40,6 @@ const Navbar = () => {
         setIsHidden(false);
       } else {
         setIsHidden(true);
-      }
-
-      if (
-        !searchdivRef.current &&
-        !searchdivRef.current.contains(event.target)
-      ) {
-        setSearchList(false);
       }
     };
 
