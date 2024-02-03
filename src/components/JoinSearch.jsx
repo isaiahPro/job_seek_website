@@ -4,10 +4,11 @@ import NativeSelect from "@mui/material/NativeSelect";
 import { useState } from "react";
 
 const JoinSearch = () => {
+  const [buttonHoevr, setButtonHover] = useState(false);
   return (
     <div
       className={
-        "py-3 flex flex-row justify-between text-sm px-10 border rounded-md shadow-lg my-5"
+        "py-3 flex flex-row justify-between text-sm px-10 border rounded-md shadow-lg my-5 sm:px-2 sm:text-xs"
       }
     >
       <div>
@@ -79,7 +80,7 @@ const JoinSearch = () => {
           setButtonHover(false);
         }}
         className={
-          "bg-blue-700 cursor-pointer font-semibold mr-2 relative flex flex-row gap-2 py-auto hover:opacity-90 px-5 py-3 h-fit text-[17px] rounded-md text-white"
+          "bg-blue-700 cursor-pointer font-semibold mr-2 relative flex flex-row gap-2 py-auto hover:opacity-90 px-5 py-3 h-fit text-[17px] rounded-md text-white sm:text-[10px] sm:px-2 sm:inline-flex sm:py-1 sm:w-fit sm:my-auto"
         }
       >
         Find Job

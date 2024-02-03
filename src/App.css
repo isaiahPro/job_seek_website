@@ -1,5 +1,6 @@
 #root {
   margin: 0 auto;
+  background-color: white;
   padding: 0;
 }
 ::-webkit-scrollbar {
@@ -11,3 +12,4 @@
 ::-webkit-scrollbar-thumb:hover {
   background-color: #555;
 }
+

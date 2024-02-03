@@ -7,10 +7,10 @@ import { FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="footer flex flex-row gap-1 justify-around py-16 h-[300px] pt-10 bg-base-200 text-base-content">
-      <nav>
-        <img src={Logo} className={"w-[100px] mx-5 my-2"} alt="logo image" />
-        <p className="link link-hover w-[400px] text-sm mx-5">
+    <footer className="footer flex flex-row gap-1 justify-around py-16 h-[300px] pt-10 bg-base-200 text-base-content sm:w-screen sm:h-fit sm:pl-5 sm:justify-normal sm:flex-col ">
+      <nav className={""}>
+        <img src={Logo} className={"w-[100px] mx-5 my-2 sm:w-[200px]"} alt="logo image" />
+        <p className="link link-hover w-[400px] text-sm mx-5 sm:w-[90%]">
           Making the world a better place through constructing elegant solutions
           on the internet, and empowering consumers with the voice of the people
           and the compass of consumer choice.
@@ -35,7 +35,8 @@ const Footer = () => {
           </a>
         </div>
       </nav>
-      <nav className={"text-sm my-10 flex flex-col gap-1 "}>
+     <div className={"flex flex-row gap-20"}>
+     <nav className={"text-sm my-10 flex flex-col gap-1 sm:w-fit sm:text-center "}>
         <header className={"footer-title font-bold"}>Company</header>
         <a href="/aboutus" className="link hover:text-blue-600 link-hover">
           About us
@@ -47,7 +48,7 @@ const Footer = () => {
           Jobs
         </a>
       </nav>
-      <nav className={"text-sm my-10 flex flex-col gap-1 "}>
+      <nav className={"text-sm my-10 flex flex-col gap-1 sm:w-fit"}>
         <header className={"footer-title font-bold"}>Legal</header>
         <a href="/termsofuse" className="link hover:text-blue-600 link-hover">
           Terms of use
@@ -65,19 +66,20 @@ const Footer = () => {
           Cookie policy
         </a>
       </nav>
-      <form className={"text-sm my-10 flex flex-col gap-3 "}>
+     </div>
+      <form className={"text-sm my-10 flex flex-col gap-3 sm:w-[70%] sm:my-0 "}>
         <header className={"footer-title font-bold"}>Newsletter</header>
         <fieldset className="form-control flex flex-col gap-2 w-80">
           <label className="label">
             <span className="label-text">Enter your email address</span>
           </label>
-          <div className="join">
+          <div className="join ">
             <input
               type="text"
               placeholder="username@site.com"
-              className="input input-bordered join-item"
+              className="input input-bordered join-item sm:input-sm"
             />
-            <button className="btn btn-primary join-item">Subscribe</button>
+            <button className="btn btn-primary join-item sm:btn-sm">Subscribe</button>
           </div>
         </fieldset>
       </form>

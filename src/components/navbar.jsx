@@ -45,6 +45,7 @@ const Navbar = () => {
 
     const handleScroll = () => {
       setIsHidden(false);
+      setSearchDisplay(false);
     };
 
     document.addEventListener("click", handleClickOutside);
@@ -63,14 +64,14 @@ const Navbar = () => {
       }
     >
       <div
+        ref={searchdivRef}
         className={
           searchDisplay
-            ? "absolute bg-[rgba(0,0,0,.3)] h-screen w-full sm:z-20 sm:w-screen "
+            ? "absolute bg-[rgba(0,0,0,.3)] sm:fixed h-screen w-full sm:z-20 sm:w-screen "
             : "hidden"
         }
       >
         <div
-          ref={searchdivRef}
           className={
             " my-20 relative w-[60%] sm:w-[90%] sm:px-5 mx-auto shadow-md bg-[rgba(255,255,255,.98)] h-[400px] rounded-xl  py-28 px-32"
           }
@@ -136,7 +137,7 @@ const Navbar = () => {
           ref={divRef}
           className={
             isHidden
-              ? "sm:absolute sm:left-0 sm:top-0 sm:w-[30%] sm:py-10 sm:px-10 sm:bg-[rgba(40,40,43,0.9)] sm:h-screen sm:text-white"
+              ? "sm:absolute sm:left-0 sm:top-0 sm:w-fit sm:py-10 sm:px-10 sm:bg-[rgba(40,40,43,0.9)] sm:h-screen sm:text-white"
               : "sm:hidden"
           }
         >

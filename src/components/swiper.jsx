@@ -5,27 +5,24 @@ import "swiper/css/navigation";
 import { catagoryList } from "../constants/linkslist";
 import "../style/swiperstyle.css";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export default function CatagoriesSwiper() {
+  const [slideNumber, setSlideNumber] = useState(4);
   const [cat, setCat] = useState({});
-
   const handleMouseEnter = (index) => {
     setCat((prevCat) => ({
       ...prevCat,
       [index]: true,
     }));
   };
-
   const handleMouseLeave = (index) => {
     setCat((prevCat) => ({
       ...prevCat,
       [index]: false,
     }));
   };
-
-  // Splitting the catagoryList into groups of four
   const splitCategories = (categories, groupSize) => {
     const result = [];
     for (let i = 0; i < categories.length; i += groupSize) {
@@ -33,8 +30,25 @@ export default function CatagoriesSwiper() {
     }
     return result;
   };
+  const categoryGroups = splitCategories(catagoryList, slideNumber);
+  useEffect(() => {
+    const handleResize = () => {
+      const screenWidth = window.innerWidth;
+      if (screenWidth < 768) {
+        setSlideNumber(2);
+      } else if (screenWidth >= 768 && screenWidth < 1024) {
+        setSlideNumber(3);
+      } else {
+        setSlideNumber(4);
+      }
+    };
 
-  const categoryGroups = splitCategories(catagoryList, 4);
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <div className={"relative pb-20"}>
@@ -54,18 +68,21 @@ export default function CatagoriesSwiper() {
       >
         <div
           className={
-            "py-20 pl-20 pr-10  pb-40 bg-[rgb(227,241,251,0.3)] flex flex-row justify-between "
+            "py-20 pl-20 pr-10  pb-40 bg-[rgb(227,241,251,0.3)] flex flex-row justify-between sm:pl-5 sm:pr-3 "
           }
         >
           {categoryGroups.map((group, groupIndex) => (
-            <SwiperSlide key={groupIndex} className={" bg-[rgb(227,241,251,0.3)] py-10 pb-28"}>
+            <SwiperSlide
+              key={groupIndex}
+              className={" bg-[rgb(227,241,251,0.3)] py-10 pb-28"}
+            >
               {group.map((item, index) => (
                 <Link
                   key={index}
                   onMouseEnter={() => handleMouseEnter(index)}
                   onMouseLeave={() => handleMouseLeave(index)}
                   className={
-                    "bg-white overflow-hidden border relative h-[140px] w-[20%] mx-5 py-10  rounded-lg shadow-xl shadow-[#d3e9f8]"
+                    "bg-white overflow-hidden border relative h-[140px] w-[20%]  mx-5 py-10  rounded-lg shadow-xl shadow-[#d3e9f8] sm:w-[46%] sm:mx-2 sm:h-[270px] sm:py-20"
                   }
                   to={item.link}
                 >
@@ -75,7 +92,7 @@ export default function CatagoriesSwiper() {
                     >
                       {item.icon}
                     </div>
-                    <div className={"absolute top-7 z-10 right-[30%] "}>
+                    <div className={"absolute top-7 z-10 right-[30%] sm:top-40 sm:text-center sm:right-7  "}>
                       <div
                         className={
                           "pb-2 bg-blue-700 z-10 text-center p-1 text-white rounded-md font-semibold"
@@ -111,7 +128,13 @@ export default function CatagoriesSwiper() {
           ))}
         </div>
       </Swiper>
-      <div className={"absolute right-16 hover:opacity-90 cursor-pointer bottom-44 z-10 bg-blue-700 w-fit px-3 py-2 text-white font-semibold rounded-md"}>AllCatagories</div>
+      <div
+        className={
+          "absolute right-16 hover:opacity-90 cursor-pointer bottom-44 z-10 bg-blue-700 w-fit px-3 py-2 text-white font-semibold rounded-md sm:right-32"
+        }
+      >
+        AllCatagories
+      </div>
     </div>
   );
 }
