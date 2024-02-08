@@ -6,11 +6,26 @@ import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import Jobs from "./pages/jobs";
 import JobsDetail from "./pages/dynamicPages/jobsdetail";
-
+import Employers from "./pages/employers";
+import EmployeDetail from "./pages/dynamicPages/employedetail";
 function App() {
   const { pathname } = useLocation();
-  const showNavbar = ["/", "/jobs", "/jobs/dynamic"];
-  const showFooter = ["/", "/jobs", "/jobs/dynamic"];
+  const showNavbar = [
+    "/",
+    "/jobs",
+    "/home",
+    "/employes/details",
+    "/employers",
+    "/jobs/dynamic",
+  ];
+  const showFooter = [
+    "/",
+    "/jobs",
+    "/home",
+    "/employes/details",
+    "/employers",
+    "/jobs/dynamic",
+  ];
   const shouldShowNavbar = showNavbar.includes(pathname);
   const shouldShowFooter = showFooter.includes(pathname);
 
@@ -19,10 +34,10 @@ function App() {
       {shouldShowNavbar && <Navbar />}
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/home" element={<HomePage />} />
         <Route path="/jobs" element={<Jobs />} />
-        <Route path="/jobs/dynamic" element={<JobsDetail />} />
-        {/* <Route path="/catagories" element={<Catagories />} />
-        <Route path="/category/:catagoryID" element={<MainCat />} /> */}
+        <Route path="/employes/details" element={<EmployeDetail />} />
+        <Route path="/employers" element={<Employers />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
       {shouldShowFooter && <Footer />}

@@ -329,12 +329,12 @@ const HomePage = () => {
         </div>
       </div>
       <div className={"bg-white py-20 pb-0 px-20 sm:px-0"}>
-        <p className={"text-xl font-bold my-5 text-blue-700 sm:text-center sm:my-2"}>
+        <p className={"text-xl font-bold my-5 text-blue-700 sm:text-center text-center sm:my-2"}>
           Clients Testimonials
         </p>
         <p
           className={
-            "text-5xl font-ubuntu w-[500px] leading-[70px] font-semibold sm:text-2xl sm:w-[250px] text-center sm:mx-auto"
+            "text-5xl font-ubuntu w-[500px] mx-auto leading-[70px] font-semibold sm:text-2xl sm:w-[250px] text-center sm:mx-auto"
           }
         >
           What Our Customers Say About Us
