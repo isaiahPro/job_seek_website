@@ -8,6 +8,8 @@ import Jobs from "./pages/jobs";
 import JobsDetail from "./pages/dynamicPages/jobsdetail";
 import Employers from "./pages/employers";
 import EmployeDetail from "./pages/dynamicPages/employedetail";
+import Registration from "./pages/signup";
+import SignIn from "./pages/signin";
 function App() {
   const { pathname } = useLocation();
   const showNavbar = [
@@ -35,6 +37,8 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/home" element={<HomePage />} />
+        <Route path="/signup" element={<Registration />} />
+        <Route path="/signin" element={<SignIn />} />
         <Route path="/jobs" element={<Jobs />} />
         <Route path="/employes/details" element={<EmployeDetail />} />
         <Route path="/employers" element={<Employers />} />
