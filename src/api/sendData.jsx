@@ -18,7 +18,7 @@ export const createAccount = async (formData) => {
 
   try {
     const response = await axios.post(
-      `${apiUrl}/talent/userdata`,
+      `${apiUrl}talent/userdata`,
       formDataToSend
     );
     return response.data;
