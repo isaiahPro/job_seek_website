@@ -1,7 +1,6 @@
 import axios from "axios";
 
-
-const apiUrl = import.meta.env.VITE_API_URL
+const apiUrl = import.meta.env.VITE_API_URL;
 
 export const createAccount = async (formData) => {
   const formDataToSend = new FormData();
@@ -18,7 +17,7 @@ export const createAccount = async (formData) => {
 
   try {
     const response = await axios.post(
-      `${apiUrl}/talent/userdata`,
+      `${apiUrl}talent/userdata`,
       formDataToSend
     );
     return response.data;
@@ -31,7 +30,7 @@ export const createAccount = async (formData) => {
 // api/sendData.js
 export const verifyAccount = async (gmail, verificationCode) => {
   try {
-    const response = await axios.post(`${apiUrl}/talent/verifyemail`, {
+    const response = await axios.post(`${apiUrl}talent/verifyemail`, {
       gmail,
       verificationCode,
     });
@@ -42,7 +41,7 @@ export const verifyAccount = async (gmail, verificationCode) => {
 };
 export const LoginAccount = async (gmail, password) => {
   try {
-    const response = await axios.post(`${apiUrl}/talent/login`, {
+    const response = await axios.post(`${apiUrl}talent/login`, {
       gmail,
       password,
     });
