@@ -10,6 +10,7 @@ import Employers from "./pages/employers";
 import EmployeDetail from "./pages/dynamicPages/employedetail";
 import Registration from "./pages/signup";
 import SignIn from "./pages/signin";
+import ForgetPassword from "./pages/forgetPassword";
 function App() {
   const { pathname } = useLocation();
   const showNavbar = [
@@ -38,6 +39,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/signup" element={<Registration />} />
+        <Route path="/forget-password" element={<ForgetPassword />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/jobs" element={<Jobs />} />
         <Route path="/employes/details" element={<EmployeDetail />} />

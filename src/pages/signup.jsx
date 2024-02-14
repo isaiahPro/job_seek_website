@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { BiHide, BiShow } from "react-icons/bi";
 import { createAccount } from "../api/sendData"; // Update the path accordingly
 import Verify from "../components/verify";
+import { Link } from "react-router-dom";
+import { RxCross2 } from "react-icons/rx";
 
-const RegistrationForm = () => {
+const RegistrationForm = ({ setSignUpPage }) => {
   const [formData, setFormData] = useState({
     name: "",
     age: "",
@@ -11,6 +13,7 @@ const RegistrationForm = () => {
     password: "",
     gmail: "",
     education: [""],
+    profile_pic: null,
     resume_file: null,
   });
   const [showVerify, setShowVerify] = useState(false);
@@ -20,6 +23,9 @@ const RegistrationForm = () => {
 
   const handleFileChange = (e) => {
     setFormData({ ...formData, resume_file: e.target.files[0] });
+  };
+  const handleProfilePicChange = (e) => {
+    setFormData({ ...formData, profile_pic: e.target.files[0] });
   };
 
   const handleChange = (e, index) => {
@@ -46,7 +52,7 @@ const RegistrationForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setErrorMessage("")
+    setErrorMessage("");
     setIsloading(true);
     try {
       const response = await createAccount(formData);
@@ -74,19 +80,29 @@ const RegistrationForm = () => {
   };
 
   return (
-    <div className={"py-1 flex flex-row justify-normal"}>
+    <div className={"  flex overflow-scroll flex-row justify-normal"}>
       <form
         onSubmit={handleSubmit}
         className={
           showVerify
-            ? "w-[600px] -ml-50 px-10 py-10 border-2 flex flex-col gap-3 mx-auto mt-4 rounded-xl shadow-2xl shadow-blue-800"
-            : "w-[600px] px-10 py-10 border-2 flex flex-col gap-3 mx-auto mt-4 rounded-xl shadow-2xl shadow-blue-800"
+            ? "hidden"
+            : "w-[600px] pb-5 relative h-fit bg-white  rounded-xl border-t-4 pt-2 border-blue-700 mx-auto px-10 flex flex-col gap-3 "
         }
       >
-        <h1 className={"text-xl font-roboto font-bold text-center mb-4"}>
-          Registration Form
+        <div
+          className={"absolute top-2 text-2xl right-3 bottom-0"}
+          onClick={() => setSignUpPage(false)}
+        >
+          <RxCross2 />
+        </div>
+        <h1
+          className={
+            "text-xl font-roboto font-bold text-center mt-2 text-blue-600"
+          }
+        >
+          Sign Up
         </h1>
-        <label className=" gap-3 mb-2 flex flex-row justify-between">
+        <label className=" gap-3 flex flex-row justify-between">
           <span className="text-gray-700 w-[15%] font-roboto my-auto font-semibold">
             Name:
           </span>
@@ -95,7 +111,7 @@ const RegistrationForm = () => {
             name="name"
             value={formData.name}
             onChange={(e) => handleChange(e)}
-            className=" mt-1 input input-sm bg-transparent border border-slate-200  block w-full"
+            className=" mt-1 input input-base bg-transparent border border-slate-200  block w-full"
             required
           />
         </label>
@@ -109,7 +125,7 @@ const RegistrationForm = () => {
             name="age"
             value={formData.age}
             onChange={(e) => handleChange(e)}
-            className=" mt-1 input input-sm bg-transparent border border-slate-200  block w-full"
+            className=" mt-1 input input-base bg-transparent border border-slate-200  block w-full"
             required
           />
         </label>
@@ -150,11 +166,11 @@ const RegistrationForm = () => {
               name="password"
               value={formData.password}
               onChange={(e) => handleChange(e)}
-              className=" mt-1 input input-sm bg-transparent border border-slate-200  block w-full"
+              className=" mt-1 input input-base bg-transparent border border-slate-200  block w-full"
               required
             />
             <div
-              className={"absolute right-3 top-3 text-base"}
+              className={"absolute right-5 top-5 my-auto text-base"}
               onClick={() => setShowPassword(!showPassword)}
             >
               {showPassword ? <BiShow /> : <BiHide />}
@@ -173,7 +189,7 @@ const RegistrationForm = () => {
             value={formData.gmail}
             placeholder="Email"
             onChange={(e) => handleChange(e)}
-            className=" mt-1 input input-sm bg-transparent border border-slate-200  block w-full"
+            className=" mt-1 input input-base bg-transparent border border-slate-200  block w-full"
             required
           />
         </label>
@@ -212,18 +228,30 @@ const RegistrationForm = () => {
             Add Education
           </button>
         </div>
-
-        <label className="block mb-2">
-          <span className="text-gray-700 font-roboto my-auto font-semibold">
-            Resume File:
-          </span>
-          <input
-            type="file"
-            name="resume_file"
-            onChange={handleFileChange}
-            className="form-input mt-1 block  w-full"
-          />
-        </label>
+        <div className={"flex flex-row"}>
+          <label className="block mb-2">
+            <span className="text-gray-700 font-roboto my-auto font-semibold">
+              profile Image
+            </span>
+            <input
+              type="file"
+              name="profile_pic"
+              onChange={handleProfilePicChange}
+              className="form-input mt-1 block  w-full"
+            />
+          </label>
+          <label className="block mb-2">
+            <span className="text-gray-700 font-roboto my-auto font-semibold">
+              Resume File:
+            </span>
+            <input
+              type="file"
+              name="resume_file"
+              onChange={handleFileChange}
+              className="form-input mt-1 block  w-full"
+            />
+          </label>
+        </div>
 
         <button
           type="submit"
@@ -235,14 +263,24 @@ const RegistrationForm = () => {
             <span className="loading loading-spinner text-secondary"></span>
           )}
         </button>
+        <div
+          className={
+            "text-sm font-roboto flex flex-row justify-between pr-5 py-2"
+          }
+        >
+          <p>Already have an account?</p>
+          <Link className={"text-blue-600 font-bold"} to={"/signin"}>
+            Login
+          </Link>
+        </div>
         {errorMessage && (
           <p className={"text-error font-semibold text-sm font-roboto"}>
             {errorMessage}
           </p>
         )}
       </form>
-      <div className={showVerify ? "block" : "hidden"}>
-        <Verify gmail_data={formData.gmail} />
+      <div className={showVerify ? "block  mx-auto my-2 h-screen overflow-hidden " : "hidden"}>
+        <Verify gmail_data={formData.gmail} setSignUpPage={setSignUpPage} />
       </div>
     </div>
   );

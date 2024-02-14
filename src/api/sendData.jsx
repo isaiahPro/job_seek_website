@@ -39,6 +39,36 @@ export const verifyAccount = async (gmail, verificationCode) => {
     throw error.response.data; // Throwing the server's response data
   }
 };
+export const sendVerification = async (email) => {
+  console.log(email);
+  try {
+    const response = await axios.post(
+      `${apiUrl}talent/userdata/forgot-password`,
+      {
+        email,
+      }
+    );
+    return response.data;
+  } catch (error) {
+    throw error.response.data; // Throwing the server's response data
+  }
+};
+export const changePassword = async (email, verificationCode, newPassword) => {
+  console.log(email);
+  try {
+    const response = await axios.post(
+      `${apiUrl}talent/userdata/reset-password`,
+      {
+        email,
+        verificationCode,
+        newPassword,
+      }
+    );
+    return response.data;
+  } catch (error) {
+    throw error.response.data; // Throwing the server's response data
+  }
+};
 export const LoginAccount = async (gmail, password) => {
   try {
     const response = await axios.post(`${apiUrl}talent/login`, {

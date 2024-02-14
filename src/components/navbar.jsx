@@ -8,6 +8,10 @@ import { useEffect, useRef, useState } from "react";
 import { popularSearches } from "../constants/linkslist";
 import { RxCross2 } from "react-icons/rx";
 import { HiMenu } from "react-icons/hi";
+import { useCookies } from "react-cookie";
+import { FiLogIn, FiLogOut } from "react-icons/fi";
+import sampelImage from "../assets/profile.jpg";
+import RegistrationForm from "../pages/signup";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -15,11 +19,18 @@ const Navbar = () => {
   const [hoverLink, setHoverLink] = useState({});
   const [signupHover, setSignupHover] = useState(false);
   const [searchList, setSearchList] = useState(false);
+  const [signUpPage, setSignUpPage] = useState(false);
   const divRef = useRef(null);
   const mobileNavRef = useRef(null);
   const searchdivRef = useRef(null);
-  const [isHidden, setIsHidden] = useState(false);
+  const [cookies, removeCookies] = useCookies(["user_data"]);
+  const userData = cookies.user_data;
+  const imageUrl = import.meta.env.VITE_IMAGE_URL;
 
+  const [isHidden, setIsHidden] = useState(false);
+  const onLogoutClick = () => {
+    removeCookies("user_data");
+  };
   useEffect(() => {
     const handleScroll = () => {
       const isScrolled = window.scrollY > 0;
@@ -124,13 +135,12 @@ const Navbar = () => {
             : " flex bg-[#f7f8fa] px-20 font-ubuntu w-[90%]  md:w-[100%] py-5 pb-0 flex-row sm:w-screen justify-center rounded-b-sm sm:justify-between -ml-20 md:ml-0 md:px-5 md:py-2 sm:ml-0 sm:px-5 sm:py-0 "
         }
       >
-        <div className={"h-fit mt-3"}>
+        <div className={"mt-3"}>
           <img
             src={logo}
             alt="logo image"
-            height={40}
-            width={170}
-            className={"md:w-[100px] sm:w-[100px] "}
+            title="logo image"
+            className={"md:w-[100px] w-[200px] object-cover sm:w-[100px] "}
           />
         </div>
         <div
@@ -174,29 +184,34 @@ const Navbar = () => {
               "pt-2  text-blue-700 hidden sm:flex flex-col mt-32 gap-5  h-fit md:justify-between sm:justify-start  sm:w-fit sm:ml-3 mx-10 md:ml-3"
             }
           >
-            <Link
-              to={"/signup"}
-              onMouseEnter={() => {
-                setSignupHover(true);
-              }}
-              onMouseLeave={() => {
-                setSignupHover(false);
-              }}
-              className={
-                signupHover
-                  ? "bg-blue-100  mr-2 relative flex flex-row gap-2 py-auto hover:opacity-90 px-5 py-2 h-fit text-[17px] rounded-md text-white  md:text-xs sm:text-xs"
-                  : "bg-blue-100 mr-2 relative flex flex-row gap-2 py-auto hover:opacity-90 px-5 py-2 h-fit text-[17px] rounded-md text-blue-900 md:text-xs sm:text-xs"
-              }
-            >
-              signUp
-              <div
+            {userData && userData.user ? (
+              <div>{userData.user.name}</div>
+            ) : (
+              <Link
+                to={"/signup"}
+                onMouseEnter={() => {
+                  setSignupHover(true);
+                }}
+                onMouseLeave={() => {
+                  setSignupHover(false);
+                }}
                 className={
                   signupHover
-                    ? "hoverLink absolute -z-10  rounded-md left-0 top-0 w-full h-full bg-slate-900"
-                    : "hidden"
+                    ? "bg-blue-100  mr-2 relative flex flex-row gap-2 py-auto hover:opacity-90 px-5 py-2 h-fit text-[17px] rounded-md text-white  md:text-xs sm:text-xs"
+                    : "bg-blue-100 mr-2 relative flex flex-row gap-2 py-auto hover:opacity-90 px-5 py-2 h-fit text-[17px] rounded-md text-blue-900 md:text-xs sm:text-xs"
                 }
-              ></div>
-            </Link>
+              >
+                signUp
+                <div
+                  className={
+                    signupHover
+                      ? "hoverLink absolute -z-10  rounded-md left-0 top-0 w-full h-full bg-slate-900"
+                      : "hidden"
+                  }
+                ></div>
+              </Link>
+            )}
+
             <Link
               to={"/signup"}
               className={
@@ -232,35 +247,86 @@ const Navbar = () => {
         >
           <Link
             to={"/signup"}
-            onMouseEnter={() => {
-              setSignupHover(true);
-            }}
-            onMouseLeave={() => {
-              setSignupHover(false);
-            }}
-            className={
-              signupHover
-                ? "bg-blue-100  mr-2 relative flex flex-row gap-2 py-auto hover:opacity-90 px-5 py-2 h-fit text-[17px] rounded-md text-white  md:text-xs sm:text-xs"
-                : "bg-blue-100 mr-2 relative flex flex-row gap-2 py-auto hover:opacity-90 px-5 py-2 h-fit text-[17px] rounded-md text-blue-900 md:text-xs sm:text-xs"
-            }
-          >
-            signUp
-            <div
-              className={
-                signupHover
-                  ? "hoverLink absolute -z-10  rounded-md left-0 top-0 w-full h-full bg-slate-900"
-                  : "hidden"
-              }
-            ></div>
-          </Link>
-          <Link
-            to={"/signup"}
             className={
               "bg-blue-600 hover:scale-105 h-fit w-28 hover:opacity-90 px-5 py-2 rounded-md  text-white text-[17px] md:text-xs md:w-20 md:px-0 md:text-center sm:text-xs sm:w-20 sm:px-0 sm:text-center"
             }
           >
             Post Job
           </Link>
+          {userData && userData.user ? (
+            <div className={"flex flex-row ml-3"}>
+              <div className={"my-auto"}>
+                {userData.user.profile_pic ? (
+                  <div className={"w-[40px] h-[40px] my-auto  rounded-full"}>
+                    <img
+                      src={`${imageUrl}/${userData.user.profile_pic}`}
+                      className={"w-full object-cover h-full rounded-full"}
+                    />
+                  </div>
+                ) : (
+                  <div className={"w-[40px] h-[40px] my-auto  rounded-full"}>
+                    <img
+                      src={sampelImage}
+                      className={"w-full object-cover h-full rounded-full"}
+                    ></img>
+                  </div>
+                )}
+              </div>
+              <div
+                className={
+                  " inline-flex my-auto text-xl text-black font-ubuntu font-semibold px-2"
+                }
+              >
+                {userData.user.name}
+              </div>
+            </div>
+          ) : (
+            <Link
+              // to={"/signup"}
+              onMouseEnter={() => {
+                setSignupHover(true);
+              }}
+              onMouseLeave={() => {
+                setSignupHover(false);
+              }}
+              onClick={() => {
+                setSignUpPage(true);
+              }}
+              className={
+                signupHover
+                  ? "bg-blue-100  mr-2 relative flex flex-row gap-2 py-auto hover:opacity-90 px-5 py-2 h-fit text-[17px] rounded-md text-white  md:text-xs sm:text-xs"
+                  : "bg-blue-100 mr-2 relative flex flex-row gap-2 py-auto hover:opacity-90 px-5 py-2 h-fit text-[17px] rounded-md text-blue-900 md:text-xs sm:text-xs"
+              }
+            >
+              signUp
+              <div
+                className={
+                  signupHover
+                    ? "hoverLink absolute -z-10  rounded-md left-0 top-0 w-full h-full bg-slate-900"
+                    : "hidden"
+                }
+              ></div>
+            </Link>
+          )}
+          {userData && userData.user ? (
+            <div
+              onClick={onLogoutClick}
+              className={
+                "inline-flex cursor-pointer gap-2 my-auto text-base mx-3"
+              }
+            >
+              {" "}
+              logout <FiLogOut className={"my-auto"} />
+            </div>
+          ) : (
+            <Link
+              to={"/signin"}
+              className={"inline-flex my-auto text-base px-2"}
+            >
+              {" "}
+              login <FiLogIn className={"my-auto"} />
+            </Link>
+          )}
         </div>
         <div
           ref={mobileNavRef}
@@ -271,6 +337,15 @@ const Navbar = () => {
         >
           {!isHidden ? <HiMenu /> : <RxCross2 />}
         </div>
+      </div>
+      <div
+        className={
+          signUpPage
+            ? "absolute overflow-scroll top-0 left-0 h-screen pb-5 w-screen bg-[rgb(0,0,0,0.7)] z-[100]"
+            : "hidden"
+        }
+      >
+        <RegistrationForm setSignUpPage={setSignUpPage} />
       </div>
     </div>
   );
