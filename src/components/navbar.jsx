@@ -23,6 +23,7 @@ const Navbar = () => {
   const mobileNavRef = useRef(null);
   const searchdivRef = useRef(null);
   const [cookies, removeCookies] = useCookies(["user_data"]);
+ 
   const userData = cookies.user_data;
   const imageUrl = import.meta.env.VITE_IMAGE_URL;
 
@@ -42,6 +43,7 @@ const Navbar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -213,7 +215,7 @@ const Navbar = () => {
             )}
 
             <Link
-              to={"/company/home"}
+              to={"/company/signin"}
               className={
                 "bg-blue-600 hover:scale-105 h-fit w-28 hover:opacity-90 px-5 py-2 rounded-md  text-white text-[17px] md:text-xs md:w-20 md:px-0 md:text-center sm:text-xs sm:w-20 sm:px-0 sm:text-center"
               }
@@ -246,7 +248,7 @@ const Navbar = () => {
           }
         >
           <Link
-            to={"/company/home"}
+            to={"/company/signin"}
             className={
               "bg-blue-600 hover:scale-105 h-fit w-28 hover:opacity-90 px-5 py-2 rounded-md  text-white text-[17px] md:text-xs md:w-20 md:px-0 md:text-center sm:text-xs sm:w-20 sm:px-0 sm:text-center"
             }

@@ -72,9 +72,4 @@ export const company_navbar = [
     Icon: RiDeleteBin6Line,
     link: "/company/delete",
   },
-  {
-    name: "Logout",
-    Icon: FiLogOut,
-    link: "/company/logout",
-  },
 ];

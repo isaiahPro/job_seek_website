@@ -80,3 +80,25 @@ export const LoginAccount = async (gmail, password) => {
     throw error.response.data; // Throwing the server's response data
   }
 };
+export const CompanyLogin = async (email, password) => {
+  try {
+    const response = await axios.post(`${apiUrl}company/signin`, {
+      email,
+      password,
+    });
+    return response.data;
+  } catch (error) {
+    throw error.response.data; // Throwing the server's response data
+  }
+};
+
+export const CheckLogin = async (token) => {
+  try {
+    const response = await axios.post(`${apiUrl}company/checklogin`, {
+      token,
+    });
+    return true;
+  } catch (error) {
+    return false; // Throwing the server's response data
+  }
+};

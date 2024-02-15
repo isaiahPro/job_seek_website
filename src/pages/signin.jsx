@@ -9,7 +9,6 @@ import { RxCross2 } from "react-icons/rx";
 const SignIn = ({ setSignUpPage }) => {
   const [isloading, setIsloading] = useState(false);
   const [cookies, setCookie, removeCookie] = useCookies(["token"]);
-  const [dataCookies, setDataCookie] = useCookies(["user_data"]);
   const [showPassword, setShowPassword] = useState(false);
   const [gmail, setEmail] = useState("");
   const [password, setPassword] = useState("");

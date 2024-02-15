@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logoImage from "../../assets/logoimages/logo.png";
 import { company_navbar } from "../../constants/com_data";
 import { IoMdNotifications } from "react-icons/io";
@@ -8,11 +8,30 @@ import ProfileImage from "../../assets/profile.jpg";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 import { CgMail } from "react-icons/cg";
+import { FiLogOut } from "react-icons/fi";
+import { useCookies } from "react-cookie";
+import { useNavigate } from "react-router-dom";
 const Comp_navbar = () => {
+  const [companyData, setCompanyData] = useState({});
   const activePage = compActive((state) => state.activePage);
   const [navbarDecr, setNavbarDecr] = useState(false);
+  const navigate = useNavigate();
+  const [cookies, setCookie, removeCookie] = useCookies([
+    "company_token",
+    "company_data",
+  ]);
+
+  const logoutFunction = () => {
+    removeCookie("company_token");
+    navigate("/home");
+  };
+  useEffect(() => {
+    if (cookies.company_data) {
+      setCompanyData(cookies.company_data);
+    }
+  }, [cookies.company_data]);
+
   const { updateTiny } = leftTinyFun();
-  console.log(activePage);
   return (
     <div className={"flex flex-row fixed w-screen"}>
       <div
@@ -54,6 +73,17 @@ const Comp_navbar = () => {
               </Link>
             </div>
           ))}
+          <div
+            onClick={logoutFunction}
+            className={
+              "flex flex-row cursor-pointer py-3 px-3 hover:text-blue-700 gap-2 text-base font-roboto"
+            }
+          >
+            <div className={!navbarDecr ? "my-auto " : "my-auto text-2xl"}>
+              <FiLogOut />
+            </div>
+            {!navbarDecr && <div>Logout</div>}
+          </div>
         </div>
       </div>
       <div
@@ -92,7 +122,7 @@ const Comp_navbar = () => {
             >
               <img src={ProfileImage} alt="profile_image" />
             </div>
-            <div className={"my-auto text-base font-ubuntu"}>Nikola Tesla</div>
+            <div className={"my-auto text-base font-ubuntu"}>{companyData.admin_name}</div>
           </div>
         </div>
       </div>
