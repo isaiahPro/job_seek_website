@@ -1,4 +1,11 @@
 import companyImg from "../assets/logoimages/pic1.jpg";
+import { FaHome } from "react-icons/fa";
+import { FcManager } from "react-icons/fc";
+import { FaToolbox } from "react-icons/fa";
+import { IoMdNotifications } from "react-icons/io";
+import { FiLogOut } from "react-icons/fi";
+import { RiDeleteBin6Line } from "react-icons/ri";
+import { TbPasswordFingerprint } from "react-icons/tb";
 export const fullData = {
   name: "Galaxy Software Development",
   location: "1363-1385 Sunset Blvd Los Angeles, CA 90026, USA",
@@ -30,6 +37,44 @@ export const fullData = {
     },
   ],
   experience: 6,
-  Phone:"+25163297383",
-  Email:"thewebmaxdemo@gmail.com"
+  Phone: "+25163297383",
+  Email: "thewebmaxdemo@gmail.com",
 };
+
+export const company_navbar = [
+  {
+    name: "Dashboard",
+    Icon: FaHome,
+    link: "/company/home",
+  },
+  {
+    name: "Company profile",
+    Icon: FcManager,
+    link: "/company/profile",
+  },
+  {
+    name: "Jobs",
+    Icon: FaToolbox,
+    link: "/company/job",
+  },
+  {
+    name: "Resume Alert",
+    Icon: IoMdNotifications,
+    link: "/company/alert",
+  },
+  {
+    name: " Change Password",
+    Icon: TbPasswordFingerprint,
+    link: "/company/password",
+  },
+  {
+    name: "Delete Account",
+    Icon: RiDeleteBin6Line,
+    link: "/company/delete",
+  },
+  {
+    name: "Logout",
+    Icon: FiLogOut,
+    link: "/company/logout",
+  },
+];

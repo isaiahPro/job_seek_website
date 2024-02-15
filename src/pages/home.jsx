@@ -14,7 +14,6 @@ import CompaniesSwiper from "../components/catswiper";
 import TestimonialsSwiper from "../components/testimonialswiper";
 import BlogList from "../components/blogLIst";
 import { blogList } from "../constants/linkslist";
-import { useCookies } from "react-cookie";
 
 const HomePage = () => {
   // const bears = useStore((state) => state.bears);

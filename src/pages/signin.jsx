@@ -19,7 +19,7 @@ const SignIn = ({ setSignUpPage }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsloading(true);
-  
+
     try {
       const response = await LoginAccount(gmail, password);
 
@@ -29,7 +29,7 @@ const SignIn = ({ setSignUpPage }) => {
         setCookie("user_data", response, { path: "/" });
         alert("login success full");
         setIsloading(false);
-        setSignUpPage(false);
+        navigate("/");
       }
       // Navigate to login page on success
       navigate("/");

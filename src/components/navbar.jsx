@@ -2,7 +2,6 @@ import { navbarlist } from "../constants/linkslist";
 import logo from "../assets/logoimages/logo.png";
 import { Link } from "react-router-dom";
 import { IoSearch } from "react-icons/io5";
-import { updateSearch } from "../hook/store";
 import "../style/style.css";
 import { useEffect, useRef, useState } from "react";
 import { popularSearches } from "../constants/linkslist";
@@ -30,6 +29,7 @@ const Navbar = () => {
   const [isHidden, setIsHidden] = useState(false);
   const onLogoutClick = () => {
     removeCookies("user_data");
+    removeCookie("active_page");
   };
   useEffect(() => {
     const handleScroll = () => {
@@ -213,7 +213,7 @@ const Navbar = () => {
             )}
 
             <Link
-              to={"/signup"}
+              to={"/company/home"}
               className={
                 "bg-blue-600 hover:scale-105 h-fit w-28 hover:opacity-90 px-5 py-2 rounded-md  text-white text-[17px] md:text-xs md:w-20 md:px-0 md:text-center sm:text-xs sm:w-20 sm:px-0 sm:text-center"
               }
@@ -246,7 +246,7 @@ const Navbar = () => {
           }
         >
           <Link
-            to={"/signup"}
+            to={"/company/home"}
             className={
               "bg-blue-600 hover:scale-105 h-fit w-28 hover:opacity-90 px-5 py-2 rounded-md  text-white text-[17px] md:text-xs md:w-20 md:px-0 md:text-center sm:text-xs sm:w-20 sm:px-0 sm:text-center"
             }
