@@ -26,8 +26,6 @@ export const createAccount = async (formData) => {
   }
 };
 // api/sendData.js
-
-// api/sendData.js
 export const verifyAccount = async (gmail, verificationCode) => {
   try {
     const response = await axios.post(`${apiUrl}talent/verifyemail`, {
@@ -53,6 +51,16 @@ export const sendVerification = async (email) => {
     throw error.response.data; // Throwing the server's response data
   }
 };
+export const sendCompanyVerification = async (email) => {
+  try {
+    const response = await axios.post(`${apiUrl}company/forgotpassword`, {
+      email,
+    });
+    return response.data;
+  } catch (error) {
+    throw error.response.data; // Throwing the server's response data
+  }
+};
 export const changePassword = async (email, verificationCode, newPassword) => {
   console.log(email);
   try {
@@ -64,6 +72,22 @@ export const changePassword = async (email, verificationCode, newPassword) => {
         newPassword,
       }
     );
+    return response.data;
+  } catch (error) {
+    throw error.response.data; // Throwing the server's response data
+  }
+};
+export const changeCompanyPassword = async (
+  email,
+  verificationCode,
+  newPassword
+) => {
+  try {
+    const response = await axios.post(`${apiUrl}company/resetpassword`, {
+      email,
+      verificationCode,
+      newPassword,
+    });
     return response.data;
   } catch (error) {
     throw error.response.data; // Throwing the server's response data
@@ -100,5 +124,28 @@ export const CheckLogin = async (token) => {
     return true;
   } catch (error) {
     return false; // Throwing the server's response data
+  }
+};
+// http://localhost:5000/api/
+export const CreateCompany = async (
+  PhoneNumber,
+  companyName,
+  adminEmail,
+  companyDiscription,
+  adminName,
+  password
+) => {
+  try {
+    const response = await axios.post(`${apiUrl}company`, {
+      company_phone: PhoneNumber,
+      company_name: companyName,
+      email: adminEmail,
+      description: companyDiscription,
+      admin_name: adminName,
+      password: password,
+    });
+    return response.data;
+  } catch (error) {
+    throw error.response.data; // Throwing the server's response data
   }
 };

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { CompanyLogin } from "../../api/sendData";
 import { useCookies } from "react-cookie";
+import LogoImage from "../../assets/logoimages/logo.png";
 import { useNavigate } from "react-router-dom";
 export default function Com_SignIn() {
   const [email, setGmail] = useState("");
@@ -46,7 +47,7 @@ export default function Com_SignIn() {
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img
             className="mx-auto h-10 w-auto"
-            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+            src={LogoImage}
             alt="Your Company"
           />
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
@@ -84,12 +85,12 @@ export default function Com_SignIn() {
                   Password
                 </label>
                 <div className="text-sm">
-                  <a
-                    href="#"
+                  <Link
+                    to="/company/forget-password"
                     className="font-semibold text-indigo-600 hover:text-indigo-500"
                   >
                     Forgot password?
-                  </a>
+                  </Link>
                 </div>
               </div>
               <div className="mt-2">
@@ -126,7 +127,7 @@ export default function Com_SignIn() {
           <p className="mt-10 text-center text-sm text-gray-500">
             Not a member?{" "}
             <Link
-              to="#"
+              to="/company/signup"
               className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
             >
               SignUp

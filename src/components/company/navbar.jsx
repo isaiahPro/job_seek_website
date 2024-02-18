@@ -33,7 +33,7 @@ const Comp_navbar = () => {
 
   const { updateTiny } = leftTinyFun();
   return (
-    <div className={"flex flex-row fixed w-screen"}>
+    <div className={"flex flex-row w-screen bg-[#f9fcff]"}>
       <div
         className={
           !navbarDecr
@@ -89,8 +89,8 @@ const Comp_navbar = () => {
       <div
         className={
           !navbarDecr
-            ? "w-[77%] flex flex-row  justify-end h-[60px] border-b"
-            : "w-[92%] pr-10 flex flex-row  justify-end h-[60px] border-b"
+            ? "w-[80%] pr-10 bg-white flex flex-row  justify-end h-[60px] border-b"
+            : "w-[95%]  bg-white pr-10 flex flex-row  justify-end h-[60px] border-b"
         }
       >
         <div className={"flex flex-row gap-2 mt-1 "}>
@@ -122,7 +122,9 @@ const Comp_navbar = () => {
             >
               <img src={ProfileImage} alt="profile_image" />
             </div>
-            <div className={"my-auto text-base font-ubuntu"}>{companyData.admin_name}</div>
+            <div className={"my-auto text-base font-ubuntu"}>
+              {companyData.admin_name}
+            </div>
           </div>
         </div>
       </div>

@@ -1,11 +1,26 @@
 import companyImg from "../assets/logoimages/pic1.jpg";
-import { FaHome } from "react-icons/fa";
+import {
+  FaCalendar,
+  FaCalendarAlt,
+  FaCity,
+  FaDollarSign,
+  FaEnvelope,
+  FaGenderless,
+  FaGlobe,
+  FaGraduationCap,
+  FaHome,
+  FaPhone,
+  FaTimesCircle,
+} from "react-icons/fa";
+import { MdDescription } from "react-icons/md";
 import { FcManager } from "react-icons/fc";
 import { FaToolbox } from "react-icons/fa";
 import { IoMdNotifications } from "react-icons/io";
-import { FiLogOut } from "react-icons/fi";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { TbPasswordFingerprint } from "react-icons/tb";
+import { PiIdentificationCardFill } from "react-icons/pi";
+import { FaTableCellsLarge } from "react-icons/fa6";
+import { IoDocumentText } from "react-icons/io5";
 export const fullData = {
   name: "Galaxy Software Development",
   location: "1363-1385 Sunset Blvd Los Angeles, CA 90026, USA",
@@ -71,5 +86,135 @@ export const company_navbar = [
     name: "Delete Account",
     Icon: RiDeleteBin6Line,
     link: "/company/delete",
+  },
+];
+export const jobDetailINput = [
+  {
+    name: "Job Title",
+    type: "text",
+    icon: PiIdentificationCardFill,
+    placeholder: "Enter Job Title",
+    required: true,
+    dbName: "title",
+  },
+  {
+    name: "Job Catagory",
+    type: "select",
+    options: [
+      "Other",
+      "Information Technology",
+      "Healthcare",
+      "Finance and Accounting",
+      "Marketing and Advertising",
+      "Education and Training",
+      "Customer Service and Support",
+      "Sales and Business Development",
+      "Engineering",
+      "Human Resources",
+      "Creative Arts and Design",
+    ],
+    icon: FaTableCellsLarge,
+    required: true,
+    placeholder: "Select catagory",
+    dbName: "catagory",
+  },
+  {
+    name: "Job Type",
+    type: "select",
+    options: [
+      "Full-time",
+      "Part-time",
+      "Contract",
+      "Temporary",
+      "Freelance",
+      "Internship",
+      "Remote",
+    ],
+    icon: IoDocumentText,
+    placeholder: "select job type",
+    required: true,
+    dbName: "jobType",
+  },
+  {
+    name: "offer Salary",
+    type: "number",
+    icon: FaDollarSign,
+    placeholder: "salary",
+    required: true,
+    dbName: "offersalary",
+  },
+  {
+    name: "Experience",
+    type: "text",
+    icon: FaCalendarAlt,
+    placeholder: "experience",
+    defaultValue: "Any",
+    required: false,
+    dbName: "experience",
+  },
+  {
+    name: "Qualification",
+    type: "text",
+    icon: FaGraduationCap,
+    placeholder: "Qualification TItle",
+    required: true,
+    dbName: "qualification",
+  },
+  {
+    name: "Gender",
+    type: "select",
+    icon: FaGenderless,
+    options: ["Any", "Male", "Female"],
+    placeholder: "Select Gender",
+    required: false,
+    dbName: "gender",
+  },
+  {
+    name: "Country",
+    type: "select",
+    icon: FaGlobe,
+    options: ["Ethiopia"],
+    placeholder: "Select Country",
+    required: false,
+    dbName: "country",
+  },
+  {
+    name: "City",
+    type: "text",
+    icon: FaCity,
+    placeholder: "City",
+    required: true,
+    dbName: "city",
+  },
+  {
+    name: "Phone Number",
+    type: "text",
+    icon: FaPhone,
+    placeholder: "Phone",
+    required: false,
+  },
+  {
+    name: "Website",
+    type: "text",
+    icon: FaGlobe,
+    placeholder: "https://...",
+    required: false,
+    dbName: "weblink",
+  },
+  {
+    name: "Start Date",
+    type: "datetime-local",
+    icon: FaCalendar,
+    placeholder: "mm/dd/yyyy",
+    required: true,
+    dbName: "startday",
+  },
+  {
+    name: "End Date",
+    type: "datetime-local",
+    icon: FaCalendar,
+    placeholder: "mm/dd/yyyy",
+    required: true,
+    dbName: "deadline",
   },
 ];

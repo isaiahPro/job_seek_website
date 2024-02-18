@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { compActive,leftTinyFun } from "../../hook/store";
+import { compActive, leftTinyFun } from "../../hook/store";
 import { useLocation } from "react-router-dom";
 
 const Com_delete = () => {
@@ -11,7 +11,13 @@ const Com_delete = () => {
     updateActivePage(location.pathname);
   }, []);
   return (
-    <div className={!leftTiny?"pt-[55px] pl-[20%]":"pt-[55px] pl-[7%] duration-200"}>
+    <div
+      className={
+        !leftTiny
+          ? "top-[60px] left-[20%] w-[80%] h-[90vh] overflow-x-hidden  overflow-scroll absolute"
+          : "top-[55px] left-[7%] w-[93%] h-[90vh] overflow-x-hidden  overflow-scroll absolute duration-200"
+      }
+    >
       <div className={"p-5"}>hello from home</div>
     </div>
   );

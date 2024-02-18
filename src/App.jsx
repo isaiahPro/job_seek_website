@@ -28,6 +28,8 @@ import Com_delete from "./pages/companyDashboard/delete";
 import Com_SignIn from "./pages/companyDashboard/signIn";
 import { useEffect, useState } from "react";
 import { CheckLogin } from "./api/sendData";
+import Com_SignUp from "./pages/companyDashboard/signup";
+import Com_ForgetPassword from "./pages/companyDashboard/forgetPassword";
 function App() {
   const [cookies] = useCookies(["company_token"]);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -85,6 +87,9 @@ function App() {
         <Route path="/employes/details" element={<EmployeDetail />} />
         <Route path="/employers" element={<Employers />} />
         <Route path="/company/signin" element={<Com_SignIn />} />
+        <Route path="/company/signup" element={<Com_SignUp />} />
+        <Route path="/company/forget-password" element={<Com_ForgetPassword />} />
+
         <Route
           path="/company/password"
           element={
